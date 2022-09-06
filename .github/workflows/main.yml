@@ -10,7 +10,7 @@ on:
 
   workflow_dispatch:
     
-# on: push    # Default will running for every branch.
+# on: push    # Default will running for every branch.1
     
 jobs:
  build:
