@@ -4,8 +4,11 @@ name: Flutter CI
 
 on:
   push:
-    branches:
-    - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
     
 # on: push    # Default will running for every branch.
     
@@ -32,7 +35,9 @@ jobs:
     
     # Statically analyze the Dart code for any errors.
     - run: flutter analyze .
-    
+
+    - name: Run Flutter Test
+      run: flutter test
     # Build apk.
     - run: flutter build apk
     
