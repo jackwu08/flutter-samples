@@ -17,7 +17,7 @@ void main() {
   testWidgets('sign in with bad password', (tester) async {
     await _signIn(tester, 'admin', 'pw');
     expect(find.byType(AlertDialog), findsOneWidget);
-    expect(find.text('Unable to sign in.'), findsOneWidget);
+    expect(find.text('Unable to sign in1.'), findsOneWidget);
     expect(find.text('Successfully signed in.'), findsNothing);
   });
 }
