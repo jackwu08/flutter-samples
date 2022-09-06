@@ -34,7 +34,7 @@ jobs:
     - run: flutter pub get
     
     # Statically analyze the Dart code for any errors.
-    - run: flutter analyze .
+    #- run: flutter analyze .
 
     - name: Run Flutter Test
       run: flutter test
