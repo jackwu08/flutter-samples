@@ -22,7 +22,7 @@ void main() {
     // After the app has had a chance to load items, it should no longer
     // show "...".
     expect(find.text('...'), findsNothing);
-    expect(find.text('Color #1'), findsOneWidget);
+    expect(find.text('Color #60'), findsOneWidget);
 
     // Flinging up quickly (i.e. scrolling down).
     await tester.fling(find.byType(ListView), const Offset(0, -2000), 5000);
