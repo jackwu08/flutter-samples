@@ -13,6 +13,9 @@ import 'package:flutter_samples/scroll_controller/main_scroll_controller.dart';
 import 'package:flutter_samples/size_and_position/main_size_and_position.dart';
 import 'package:flutter_samples/split_image/main_split_image.dart';
 
+import 'package:flutter_samples/catalog.dart';
+import 'package:flutter_samples/item_tile.dart';
+
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -21,10 +24,60 @@ void main() => runApp(MaterialApp(
       home: MyApp(),
     ));
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  MyAppState createState() {
-    return MyAppState();
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<Catalog>(
+      create: (context) => Catalog(),
+      child: const MaterialApp(
+        title: 'Infinite List Sample',
+        home: MyHomePage(),
+      ),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Infinite List Sample'),
+      ),
+      body: Selector<Catalog, int?>(
+        // Selector is a widget from package:provider. It allows us to listen
+        // to only one aspect of a provided value. In this case, we are only
+        // listening to the catalog's `itemCount`, because that's all we need
+        // at this level.
+        selector: (context, catalog) => catalog.itemCount,
+        builder: (context, itemCount, child) => ListView.builder(
+          // When `itemCount` is null, `ListView` assumes an infinite list.
+          // Once we provide a value, it will stop the scrolling beyond
+          // the last element.
+          itemCount: itemCount,
+          padding: const EdgeInsets.symmetric(vertical: 18),
+          itemBuilder: (context, index) {
+            // Every item of the `ListView` is individually listening
+            // to the catalog.
+            var catalog = Provider.of<Catalog>(context);
+
+            // Catalog provides a single synchronous method for getting
+            // the current data.
+            var item = catalog.getByIndex(index);
+
+            if (item.isLoading) {
+              return const LoadingItemTile();
+            }
+
+            return ItemTile(item: item);
+          },
+        ),
+      ),
+    );
   }
 }
 
