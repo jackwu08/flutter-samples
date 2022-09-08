@@ -34,11 +34,11 @@ class TestingApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        routes: {
-          HomePage.routeName: (context) => const HomePage(),
-          FavoritesPage.routeName: (context) => const FavoritesPage(),
-        },
-        initialRoute: HomePage.routeName,
+        //routes: {
+        //  HomePage.routeName: (context) => const HomePage(),
+        //  FavoritesPage.routeName: (context) => const FavoritesPage(),
+        //},
+        //initialRoute: HomePage.routeName,
       ),
     );
   }
