@@ -19,7 +19,7 @@ void main() {
       var imageList = tester.widgetList(find.byType(Image)).toList();
       expect(imageList.length, 2);
 
-      // Swipe the Carousel.
+      // Swipe the Carousel.1
       await tester.fling(find.byType(CarouselDemo), const Offset(-400, 0), 800);
       await tester.pumpAndSettle();
 
