@@ -16,7 +16,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_samples/models/favorites.dart';
 import 'package:flutter_samples/screens/favorites.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_samples/screens/home.dart';
 
 void main() => runApp(const TestingApp());
 
@@ -34,11 +34,11 @@ class TestingApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        //routes: {
-        //  HomePage.routeName: (context) => const HomePage(),
-        //  FavoritesPage.routeName: (context) => const FavoritesPage(),
-        //},
-        //initialRoute: HomePage.routeName,
+        routes: {
+          HomePage.routeName: (context) => const HomePage(),
+          FavoritesPage.routeName: (context) => const FavoritesPage(),
+        },
+        initialRoute: HomePage.routeName,
       ),
     );
   }
