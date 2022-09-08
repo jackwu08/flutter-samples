@@ -1,7 +1,7 @@
 package com.example.flutter_samples;
 
-import io.flutter.embedding.android.FlutterActivity;
-//import io.flutter.app.FlutterActivity;
+//import io.flutter.embedding.android.FlutterActivity;
+import io.flutter.app.FlutterActivity;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
 import android.view.ViewTreeObserver;
