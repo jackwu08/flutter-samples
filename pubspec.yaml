@@ -16,12 +16,17 @@ dependencies:
     git: 
       url: https://github.com/KolasikOmetov/circle_wheel_scroll
       ref: null_safety_and_endless_scrolling
+  window_size:
+    git:
+      url: https://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_siz
   cached_network_image: ^3.1.0
   json_annotation: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.1
   test: ^1.10.0
 
 # For information on the generic Dart part of this file, see the
